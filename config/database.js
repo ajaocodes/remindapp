@@ -3,8 +3,6 @@ require("dotenv").config()
 
 const mongoose = require("mongoose");
 
-// 🚨 Don't forget to add your username and password to your connection URI
-
 const connectionURI = process.env.MONGODB_URI
 
 console.log(connectionURI)

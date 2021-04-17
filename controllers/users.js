@@ -53,7 +53,7 @@ function login(req, res) {
 }
 
 function profile(req, res) {
-  res.render("users/profile");
+  res.render("users/profile", {currentUser: req.user});
 }
 
 function signOut(req, res) {

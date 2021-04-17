@@ -1,13 +1,16 @@
 <nav>
   <ul>
+    <% if (!currentUser){ %>
     <li>
       <a href="/users/new">Signup</a>
     </li>
     <li>
       <a href="/users/signin">Login</a>
     </li>
+    <% } else { %>
     <li>
       <a href="/users/signout">Logout</a>
     </li>
+    <% } %>
   </ul>
 </nav>
