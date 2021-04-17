@@ -2,14 +2,12 @@
   <ul>
     <% if (!currentUser){ %>
     <li>
-      <a href="/users/new">Signup</a>
-    </li>
-    <li>
-      <a href="/users/signin">Login</a>
+      <a href="/users/new"><button class="button">Sign Up</button></a>
+      <a href="/users/signin"><button class="button">Log In</button></a>
     </li>
     <% } else { %>
     <li>
-      <a href="/users/signout">Logout</a>
+      <a href="/users/signout"><button class="button">Log Out</button></a>
     </li>
     <% } %>
   </ul>
