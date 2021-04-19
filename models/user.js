@@ -1,19 +1,20 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// Destructure Schema and model from our connection
+const {Schema, model} = require("../config/database.js")
 
-const reminderSchema = new Schema ({
-    title: {type: String, required: true},
-    note:  {type: String, required: true},
-    url: {type: String},
-    // date:{format:"date-time"},
-    priority: Boolean
-})
 
 const userSchema = new Schema({
-    username: String,
-    password: String,
-    reminder: [reminderSchema]
+    username: {type: String, required: true},
+    password: {type: String, required: true},
+    reminder:[{type: Schema.Types.ObjectId, ref: "Reminder"}]
 }, { timestamps: true });
 
+/////////////////////////////////
+// Define Our Model
+/////////////////////////////////
+const User = model("User", userSchema)
 
-module.exports = mongoose.model('User', userSchema);
+
+/////////////////////////////////
+// Export Our Model
+/////////////////////////////////
+module.exports = User

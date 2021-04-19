@@ -1,5 +1,5 @@
 const User = require("../models/user");
-
+const Reminder = require("../models/reminder");
 const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 10;
@@ -43,7 +43,7 @@ function login(req, res) {
         //    add the user to a new session
         req.session.userId = foundUser._id;
         //   redirect to a secure location
-        res.redirect("/users/profile");
+        res.redirect("/reminder");
       } else {
         // if the password is wrong - redirect back to login
         res.redirect("/users/signin");
@@ -52,9 +52,16 @@ function login(req, res) {
   });
 }
 
-function profile(req, res) {
-  res.render("users/profile", {currentUser: req.user});
+const index = async (req, res) => {
+  res.send ("it works good")
 }
+
+const profile = (req, res) => {
+  let currentUser = req.user;
+  Reminder.find ({}, (err, reminder) => {
+    res.render ("reminder/index", {reminder: reminder}, {currentUser: req.user}); 
+   });
+};
 
 function signOut(req, res) {
   // destroy the session

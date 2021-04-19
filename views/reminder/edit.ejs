@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- THE HEAD TAG PARTIAL -->
+<%- include("../partials/head") %>
+
+<body>
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("../partials/header") %>
+
+    <h1>Edit Reminder</h1>
+    <form action="/reminder/<%=users.id%>?_method=PUT" method="POST">
+      Title: <input type="text" name="title" value = ""   /><br />
+      Notes: <input type="textarea" name="notes" value = "" /><br />
+      url: <input type="text" name="url" value = "" /><br />
+      High Priority: <input type="checkbox" name="priority" 
+      <% if (users.reminder.priority){ %>
+        checked 
+      <% } %> 
+      /><br />
+      <input type="submit" name="" value="Submit changes" />
+    </form>
+
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("../partials/footer") %>
+</body>
+</html>

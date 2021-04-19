@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const reminderRouter = require("./routes/reminder");
 
 // Set up express app
 const app = express();
@@ -79,6 +80,9 @@ app.use(authorization.addUserToRequest);
 // Mount routes with app.use()
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/reminder", reminderRouter);
+
+
 
 // Tell App to listen
 app.listen(port, function () {
